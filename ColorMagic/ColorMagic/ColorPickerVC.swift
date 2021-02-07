@@ -18,11 +18,11 @@ class ColorPickerVC: UIViewController {
     }
     
     @IBAction func colrBtnWasPressed(sender: UIButton) {
+        if delegate != nil {
+            delegate?.userDidChoose(color: sender.backgroundColor!, withName: sender.titleLabel!.text!)
+            self.navigationController?.popViewController(animated: true)
         
-        delegate?.userDidChoose(color: sender.backgroundColor!, withName: sender.titleLabel!.text!)
-        self.navigationController?.popViewController(animated: true)
-        
-        
+        }
     }
 
 
